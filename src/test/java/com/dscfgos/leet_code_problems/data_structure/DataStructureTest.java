@@ -1,8 +1,7 @@
 package com.dscfgos.leet_code_problems.data_structure;
 
-import com.dscfgos.leet_code_problems.algorithm.insert_position.InsertPosition;
 import com.dscfgos.leet_code_problems.data_structure.contains_duplicate.ContainsDuplicate;
-import com.dscfgos.leet_code_problems.data_structure.contains_duplicate.MaximumSubarray;
+import com.dscfgos.leet_code_problems.data_structure.maximum_subarray.MaximumSubarray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

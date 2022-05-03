@@ -1,4 +1,4 @@
-package com.dscfgos.leet_code_problems.data_structure.contains_duplicate;
+package com.dscfgos.leet_code_problems.data_structure.maximum_subarray;
 
 import java.util.HashSet;
 import java.util.List;
