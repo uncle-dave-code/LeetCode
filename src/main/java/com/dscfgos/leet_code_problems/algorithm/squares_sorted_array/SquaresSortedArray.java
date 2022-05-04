@@ -1,4 +1,4 @@
-package com.dscfgos.leet_code_problems.data_structure.arrays_101.squares_sorted_array;
+package com.dscfgos.leet_code_problems.algorithm.squares_sorted_array;
 
 import java.util.Arrays;
 
@@ -10,10 +10,11 @@ import java.util.Arrays;
 public class SquaresSortedArray {
     public int[] squareAndSort(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            nums[i] = nums[i] * nums[i];
+            nums[i] *= nums[i];
         }
         Arrays.sort(nums);
 
         return nums;
+
     }
 }

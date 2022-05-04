@@ -1,9 +1,9 @@
-package com.dscfgos.leet_code_problems.data_structure.arrays_101.merge_sorted_array;
+package com.dscfgos.leet_code_problems.data_structure.merge_sorted_array;
 
 import java.util.Arrays;
 
 /**
- * Merge Sorted Array
+ * (88) - Merge Sorted Array
  * You are given two integer arrays nums1 and nums2, sorted in non-decreasing order,
  * and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
  * <p>
@@ -15,18 +15,18 @@ import java.util.Arrays;
  * and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
  */
 public class MergeSortedArray {
-    public int[] squareAndSort(int[] nums1, int m, int[] nums2, int n) {
+    public int[] merge(int[] nums1, int m, int[] nums2, int n) {
 
-        for (int i = nums1.length - 1; (m > 0 || n > 0); i--) {
-            if (m > 0 && n > 0) {
-                if(nums1[m-1]> nums2[n-1]){
+        for (int i = nums1.length - 1; (m > 0 || n > 0); i--) { //Repeat until no elements left.
+            if (m > 0 && n > 0) { //the two arrays has data
+                if (nums1[m - 1] > nums2[n - 1]) {
                     nums1[i] = nums1[--m];
-                }else{
+                } else {
                     nums1[i] = nums2[--n];
                 }
-            } else if (m > 0) {
+            } else if (m > 0) { // the nums1 array has data
                 nums1[i] = nums1[--m];
-            } else {
+            } else { // the nums2 array has data
                 nums1[i] = nums2[--n];
             }
         }
