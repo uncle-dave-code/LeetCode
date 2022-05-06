@@ -1,8 +1,11 @@
 package com.dscfgos.leet_code_problems.data_structure;
 
+import com.dscfgos.leet_code_problems.data_structure.best_time_buy_sell_stock.BestTimeBuySellStock;
 import com.dscfgos.leet_code_problems.data_structure.contains_duplicate.ContainsDuplicate;
+import com.dscfgos.leet_code_problems.data_structure.intersection_two_arrays_II.IntersectionTwoArraysII;
 import com.dscfgos.leet_code_problems.data_structure.maximum_subarray.MaximumSubarray;
 import com.dscfgos.leet_code_problems.data_structure.merge_sorted_array.MergeSortedArray;
+import com.dscfgos.leet_code_problems.data_structure.reshape_matrix.ReshapeMatrix;
 import com.dscfgos.leet_code_problems.data_structure.two_sum.TwoSum;
 import org.junit.jupiter.api.Test;
 
@@ -67,6 +70,49 @@ class DataStructureTest {
                 () -> assertArrayEquals(new int[]{1, 2, 2, 3, 5, 6}, mergeSortedArray.merge(nums11, 3, nums12, 3)),
                 () -> assertArrayEquals(new int[]{1}, mergeSortedArray.merge(nums21, 0, nums22, 1)),
                 () -> assertArrayEquals(new int[]{1, 2}, mergeSortedArray.merge(nums31, 1, nums32, 1))
+        );
+    }
+
+    @Test
+    void intersectionTwoArraysTest() {
+        int[] nums11 = new int[]{1, 2, 2, 1};
+        int[] nums12 = new int[]{2, 2};
+
+        int[] nums21 = new int[]{0};
+        int[] nums22 = new int[]{1};
+
+        IntersectionTwoArraysII intersectionTwoArraysII = new IntersectionTwoArraysII();
+        assertAll(
+                () -> assertArrayEquals(new int[]{1, 2, 2, 3, 5, 6}, intersectionTwoArraysII.intersect(nums11, nums12)),
+                () -> assertArrayEquals(new int[]{1, 2, 2, 3, 5, 6}, intersectionTwoArraysII.intersect(nums21, nums22))
+        );
+    }
+
+
+    @Test
+    void bestTimeToSellBuyTest() {
+        int[] nums1 = new int[]{7, 1, 5, 3, 6, 4};
+        int[] nums2 = new int[]{7, 6, 4, 3, 1};
+
+        BestTimeBuySellStock bestTimeBuySellStock = new BestTimeBuySellStock();
+
+        assertAll(
+                () -> assertEquals(5, bestTimeBuySellStock.maxProfit(nums1)),
+                () -> assertEquals(0, bestTimeBuySellStock.maxProfit(nums2))
+        );
+    }
+
+    @Test
+    void reshapeMatrixTest() {
+        int[][] nums1 = new int[][]{{1, 2}, {3, 4}};
+        int[][] nums2 = new int[][]{{1, 2}, {3, 4}};
+
+
+        ReshapeMatrix reshapeMatrix = new ReshapeMatrix();
+
+        assertAll(
+                () -> assertArrayEquals(new int[][]{{1, 2, 3, 4}}, reshapeMatrix.matrixReshape(nums1,1,4)),
+                () -> assertArrayEquals(new int[][]{{1, 2}, {3, 4}}, reshapeMatrix.matrixReshape(nums2,2,4))
         );
     }
 }

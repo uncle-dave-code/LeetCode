@@ -1,11 +1,11 @@
 package com.dscfgos.leet_code_problems.data_structure.arrays_101;
 
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.check_if_n_and_double_exist.CheckIfNAndItsDoubleExist;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.duplicate_zeros.DuplicateZeros;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.even_number_digits.EvenNumberDigits;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.max_consecutive_ones.MaxConsecutiveOnes;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.remove_duplicates_sorted_array.RemoveDuplicatesSortedArray;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.remove_element.RemoveElement;
-import com.dscfgos.leet_code_problems.data_structure.merge_sorted_array.MergeSortedArray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,6 +37,18 @@ class Arrays101Test {
     }
 
     @Test
+    void evenNumberStringOfDigitsTest() {
+        int[] nums1 = new int[]{12, 345, 2, 6, 7896};
+        int[] nums2 = new int[]{555, 901, 482, 1771};
+
+        EvenNumberDigits evenNumberDigits = new EvenNumberDigits();
+        assertAll(
+                () -> assertEquals(2, evenNumberDigits.evenNumbersString(nums1)),
+                () -> assertEquals(1, evenNumberDigits.evenNumbersString(nums2))
+        );
+    }
+
+    @Test
     void duplicateZerosTest() {
         int[] nums1 = new int[]{1, 0, 2, 3, 0, 4, 5, 0};
         int[] nums2 = new int[]{1, 2, 3};
@@ -64,8 +76,8 @@ class Arrays101Test {
 
     @Test
     void removeDuplicatesSortedArrayTest() {
-        int[] nums1 = new int[]{1,1,2};
-        int[] nums2 = new int[]{0,0,1,1,1,2,2,3,3,4};
+        int[] nums1 = new int[]{1, 1, 2};
+        int[] nums2 = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         int[] nums3 = new int[]{1};
 
         RemoveDuplicatesSortedArray removeDuplicatesSortedArray = new RemoveDuplicatesSortedArray();
@@ -73,6 +85,23 @@ class Arrays101Test {
                 () -> assertEquals(2, removeDuplicatesSortedArray.removeDuplicatesElement(nums1)),
                 () -> assertEquals(5, removeDuplicatesSortedArray.removeDuplicatesElement(nums2)),
                 () -> assertEquals(1, removeDuplicatesSortedArray.removeDuplicatesElement(nums3))
+        );
+    }
+
+    @Test
+    void checkIfNAndItsDoubleExistTest() {
+        int[] nums1 = new int[]{10, 2, 5, 3};
+        int[] nums2 = new int[]{7, 1, 14, 11};
+        int[] nums3 = new int[]{3, 1, 7, 11};
+
+        CheckIfNAndItsDoubleExist checkIfNAndItsDoubleExist = new CheckIfNAndItsDoubleExist();
+        assertAll(
+                () -> assertTrue(checkIfNAndItsDoubleExist.checkIfExistDouble(nums1)),
+                () -> assertTrue(checkIfNAndItsDoubleExist.checkIfExistDouble(nums2)),
+                () -> assertFalse(checkIfNAndItsDoubleExist.checkIfExistDouble(nums3)),
+                () -> assertTrue(checkIfNAndItsDoubleExist.checkIfExist(nums1)),
+                () -> assertTrue(checkIfNAndItsDoubleExist.checkIfExist(nums2)),
+                () -> assertFalse(checkIfNAndItsDoubleExist.checkIfExist(nums3))
         );
     }
 

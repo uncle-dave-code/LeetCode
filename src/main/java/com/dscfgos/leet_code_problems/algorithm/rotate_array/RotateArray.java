@@ -3,7 +3,7 @@ package com.dscfgos.leet_code_problems.algorithm.rotate_array;
 import java.util.Arrays;
 
 /**
- * 189. Rotate Array
+ * (189) - Rotate Array
  * Given an array, rotate the array to the right by k steps, where k is non-negative.
  */
 public class RotateArray {
