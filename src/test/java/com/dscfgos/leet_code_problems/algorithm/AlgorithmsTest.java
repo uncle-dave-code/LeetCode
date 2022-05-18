@@ -2,11 +2,17 @@ package com.dscfgos.leet_code_problems.algorithm;
 
 import com.dscfgos.leet_code_problems.algorithm.binary_search.BinarySearch;
 import com.dscfgos.leet_code_problems.algorithm.first_bad_version.FirstBadVersion;
+import com.dscfgos.leet_code_problems.algorithm.flood_fill.FloodFill;
 import com.dscfgos.leet_code_problems.algorithm.insert_position.InsertPosition;
+import com.dscfgos.leet_code_problems.algorithm.longest_substring_without_repeating.LongestSubstringWithoutRepeatingCharacters;
+import com.dscfgos.leet_code_problems.algorithm.matrix.ZeroOneMatrix;
+import com.dscfgos.leet_code_problems.algorithm.max_area_of_island.MaxAreaIsland;
 import com.dscfgos.leet_code_problems.algorithm.move_zeroes.MoveZeroes;
+import com.dscfgos.leet_code_problems.algorithm.permutation_string.PermutationInString;
 import com.dscfgos.leet_code_problems.algorithm.reverse_string.ReverseString;
 import com.dscfgos.leet_code_problems.algorithm.reverse_words_string_III.ReverseWordsStringIII;
 import com.dscfgos.leet_code_problems.algorithm.rotate_array.RotateArray;
+import com.dscfgos.leet_code_problems.algorithm.rotting_oranges.RottingOranges;
 import com.dscfgos.leet_code_problems.algorithm.squares_sorted_array.SquaresSortedArray;
 import com.dscfgos.leet_code_problems.algorithm.two_sum_II.TwoSumII;
 import org.junit.jupiter.api.Test;
@@ -115,6 +121,108 @@ class AlgorithmsTest {
         assertAll(
                 () -> assertEquals("s'teL ekat edoCteeL tsetnoc", reverseWordsStringIII.reverseWords("Let's take LeetCode contest")),
                 () -> assertEquals("doG gniD", reverseWordsStringIII.reverseWords("God Ding"))
+        );
+    }
+
+    @Test
+    void longestSubstringWithoutRepeatingCharactersTest() {
+        String str1 = "abcabcbb";
+        String str2 = "bbbbb";
+        String str3 = "pwwkew";
+        String str4 = "dvdf";
+
+        LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
+        assertAll(
+                () -> assertEquals(3, longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring(str1)),
+                () -> assertEquals(1, longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring(str2)),
+                () -> assertEquals(3, longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring(str3)),
+                () -> assertEquals(3, longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring(str4))
+
+        );
+    }
+
+    @Test
+    void permutationInStringTest() {
+        String str11 = "ab";
+        String str12 = "eidbaooo";
+        String str21 = "ab";
+        String str22 = "eidboaoo";
+        String str31 = "adc";
+        String str32 = "dcda";
+
+        PermutationInString permutationInString = new PermutationInString();
+        assertAll(
+                () -> assertTrue(permutationInString.checkInclusion(str11, str12)),
+                () -> assertFalse(permutationInString.checkInclusion(str21, str22)),
+                () -> assertTrue(permutationInString.checkInclusion(str31, str32))
+        );
+    }
+
+    @Test
+    void floodFillTest() {
+        int[][] nums1 = new int[][]{{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
+        int[][] nums2 = new int[][]{{0, 0, 0}, {0, 0, 0}};
+
+        FloodFill floodFill = new FloodFill();
+        assertAll(
+                () -> assertArrayEquals(new int[][]{{2, 2, 2}, {2, 2, 0}, {2, 0, 1}}, floodFill.floodFill(nums1, 1, 1, 2)),
+                () -> assertArrayEquals(new int[][]{{2, 2, 2}, {2, 2, 2}}, floodFill.floodFill(nums2, 0, 0, 2))
+        );
+    }
+
+    @Test
+    void maxAreaIslandTest() {
+        int[][] nums1 = new int[][]{
+                {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0},
+                {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0}
+        };
+        int[][] nums2 = new int[][]{{0, 0, 0, 0, 0, 0, 0, 0}};
+        int[][] nums3 = new int[][]{
+                {1, 1, 0, 0, 0},
+                {1, 1, 0, 0, 0},
+                {0, 0, 0, 1, 1},
+                {0, 0, 0, 1, 1}
+        };
+
+        MaxAreaIsland maxAreaIsland = new MaxAreaIsland();
+        assertAll(
+                () -> assertEquals(6, maxAreaIsland.maxAreaOfIsland(nums1)),
+                () -> assertEquals(0, maxAreaIsland.maxAreaOfIsland(nums2)),
+                () -> assertEquals(4, maxAreaIsland.maxAreaOfIsland(nums3))
+        );
+    }
+
+    @Test
+    void zeroOneMatrixTest() {
+        int[][] nums1 = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        int[][] nums2 = new int[][]{{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
+        int[][] nums3 = new int[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}};
+
+        ZeroOneMatrix zeroOneMatrix = new ZeroOneMatrix();
+        assertAll(
+//                () -> assertArrayEquals(new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}}, zeroOneMatrix.updateMatrix(nums1)),
+//                () -> assertArrayEquals(new int[][]{{0, 0, 0}, {0, 1, 0}, {1, 2, 1}}, zeroOneMatrix.updateMatrix(nums2)),
+                () -> assertArrayEquals(new int[][]{{0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, zeroOneMatrix.updateMatrix(nums3))
+        );
+    }
+
+    @Test
+    void rottingOrangesTest() {
+        int[][] nums1 = new int[][]{{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
+        int[][] nums2 = new int[][]{{2, 1, 1}, {0, 1, 1}, {1, 0, 1}};
+        int[][] nums3 = new int[][]{{0, 2}};
+
+        RottingOranges rottingOranges = new RottingOranges();
+        assertAll(
+                () -> assertEquals(4, rottingOranges.orangesRotting(nums1)),
+                () -> assertEquals(-1, rottingOranges.orangesRotting(nums2)),
+                () -> assertEquals(0, rottingOranges.orangesRotting(nums3))
         );
     }
 }

@@ -3,9 +3,15 @@ package com.dscfgos.leet_code_problems.data_structure.arrays_101;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.check_if_n_and_double_exist.CheckIfNAndItsDoubleExist;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.duplicate_zeros.DuplicateZeros;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.even_number_digits.EvenNumberDigits;
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.height_checker.HeightChecker;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.max_consecutive_ones.MaxConsecutiveOnes;
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.max_consecutive_ones_II.MaxConsecutiveOnesII;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.remove_duplicates_sorted_array.RemoveDuplicatesSortedArray;
 import com.dscfgos.leet_code_problems.data_structure.arrays_101.remove_element.RemoveElement;
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.replace_elements_greatest_right_side.ReplaceElementsGreatestRightSide;
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.sort_array_by_parity.SortArrayByParity;
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.third_maximum_number.ThirdMaximumNumber;
+import com.dscfgos.leet_code_problems.data_structure.arrays_101.valid_mountain_array.ValidMountainArray;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -105,4 +111,78 @@ class Arrays101Test {
         );
     }
 
+    @Test
+    void validMountainTest() {
+        ValidMountainArray validMountainArray = new ValidMountainArray();
+        int[] nums1 = new int[]{2, 1};
+        int[] nums2 = new int[]{3, 5, 5};
+        int[] nums3 = new int[]{0, 3, 2, 1};
+        assertAll(
+                () -> assertFalse(validMountainArray.validMountainArray(nums1)),
+                () -> assertFalse(validMountainArray.validMountainArray(nums2)),
+                () -> assertTrue(validMountainArray.validMountainArray(nums3))
+        );
+    }
+
+    @Test
+    void replaceElementsGreatestRightSideTest() {
+        ReplaceElementsGreatestRightSide replaceElementsGreatestRightSide = new ReplaceElementsGreatestRightSide();
+        int[] nums1 = new int[]{17, 18, 5, 4, 6, 1};
+        int[] nums2 = new int[]{400};
+        assertAll(
+                () -> assertArrayEquals(new int[]{18, 6, 6, 6, 1, -1}, replaceElementsGreatestRightSide.replaceElements(nums1)),
+                () -> assertArrayEquals(new int[]{-1}, replaceElementsGreatestRightSide.replaceElements(nums2))
+        );
+    }
+
+    @Test
+    void sortArrayByParityTest() {
+        SortArrayByParity sortArrayByParity = new SortArrayByParity();
+        int[] nums1 = new int[]{3, 1, 2, 4};
+        int[] nums2 = new int[]{0};
+        assertAll(
+                () -> assertArrayEquals(new int[]{4, 2, 1, 3}, sortArrayByParity.sortArrayByParity(nums1)),
+                () -> assertArrayEquals(new int[]{0}, sortArrayByParity.sortArrayByParity(nums2))
+        );
+    }
+
+    @Test
+    void heightCheckerTest() {
+        int[] nums1 = new int[]{1, 1, 4, 2, 1, 3};
+        int[] nums2 = new int[]{5, 1, 2, 3, 4};
+        int[] nums3 = new int[]{1, 2, 3, 4, 5};
+
+        HeightChecker heightChecker = new HeightChecker();
+        assertAll(
+                () -> assertEquals(3, heightChecker.heightChecker(nums1)),
+                () -> assertEquals(5, heightChecker.heightChecker(nums2)),
+                () -> assertEquals(0, heightChecker.heightChecker(nums3))
+        );
+    }
+
+    @Test
+    void maxConsecutiveOnesIITest() {
+        int[] nums1 = new int[]{1, 0, 1, 1, 0};
+        int[] nums2 = new int[]{1, 0, 1, 1, 0, 1};
+
+        MaxConsecutiveOnesII maxConsecutiveOnesII = new MaxConsecutiveOnesII();
+        assertAll(
+                () -> assertEquals(4, maxConsecutiveOnesII.findMaxConsecutiveOnes(nums1)),
+                () -> assertEquals(4, maxConsecutiveOnesII.findMaxConsecutiveOnes(nums2))
+        );
+    }
+
+    @Test
+    void thirdMaximumNumberTest() {
+        int[] nums1 = new int[]{3, 2, 1};
+        int[] nums2 = new int[]{1, 2};
+        int[] nums3 = new int[]{2, 2, 3, 1};
+
+        ThirdMaximumNumber thirdMaximumNumber = new ThirdMaximumNumber();
+        assertAll(
+                () -> assertEquals(1, thirdMaximumNumber.thirdMax(nums1)),
+                () -> assertEquals(2, thirdMaximumNumber.thirdMax(nums2)),
+                () -> assertEquals(1, thirdMaximumNumber.thirdMax(nums3))
+        );
+    }
 }

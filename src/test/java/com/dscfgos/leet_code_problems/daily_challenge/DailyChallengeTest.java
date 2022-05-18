@@ -23,9 +23,9 @@ class DailyChallengeTest {
     void removeAdjacentDuplicatesStringIITest() {
         RemoveAdjacentDuplicatesStringII removeAdjacentDuplicatesStringII = new RemoveAdjacentDuplicatesStringII();
         assertAll(
-//                () -> assertEquals("abcd", removeAdjacentDuplicatesStringII.removeDuplicates("abcd", 2)),
-//                () -> assertEquals("aa", removeAdjacentDuplicatesStringII.removeDuplicates("deeedbbcccbdaa", 3)),
-//                () -> assertEquals("ps", removeAdjacentDuplicatesStringII.removeDuplicates("pbbcggttciiippooaais", 2)),
+                () -> assertEquals("abcd", removeAdjacentDuplicatesStringII.removeDuplicates("abcd", 2)),
+                () -> assertEquals("aa", removeAdjacentDuplicatesStringII.removeDuplicates("deeedbbcccbdaa", 3)),
+                () -> assertEquals("ps", removeAdjacentDuplicatesStringII.removeDuplicates("pbbcggttciiippooaais", 2)),
                 () -> assertEquals("vqm", removeAdjacentDuplicatesStringII.removeDuplicates("nnwssswwnvbnnnbbqhhbbbhmmmlllm", 3))
         );
     }

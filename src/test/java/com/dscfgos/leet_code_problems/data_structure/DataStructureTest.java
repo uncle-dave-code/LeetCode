@@ -2,11 +2,17 @@ package com.dscfgos.leet_code_problems.data_structure;
 
 import com.dscfgos.leet_code_problems.data_structure.best_time_buy_sell_stock.BestTimeBuySellStock;
 import com.dscfgos.leet_code_problems.data_structure.contains_duplicate.ContainsDuplicate;
+import com.dscfgos.leet_code_problems.data_structure.first_unique_character.FirstUniqueCharacter;
 import com.dscfgos.leet_code_problems.data_structure.intersection_two_arrays_II.IntersectionTwoArraysII;
 import com.dscfgos.leet_code_problems.data_structure.maximum_subarray.MaximumSubarray;
 import com.dscfgos.leet_code_problems.data_structure.merge_sorted_array.MergeSortedArray;
+import com.dscfgos.leet_code_problems.data_structure.ransom_note.RansomNote;
 import com.dscfgos.leet_code_problems.data_structure.reshape_matrix.ReshapeMatrix;
+import com.dscfgos.leet_code_problems.data_structure.search_2d_matrix.Search2DMatrix;
 import com.dscfgos.leet_code_problems.data_structure.two_sum.TwoSum;
+import com.dscfgos.leet_code_problems.data_structure.valid_anagram.ValidAnagram;
+import com.dscfgos.leet_code_problems.data_structure.valid_parentheses.ValidParentheses;
+import com.dscfgos.leet_code_problems.data_structure.valid_sudoku.ValidSudoku;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -111,8 +117,132 @@ class DataStructureTest {
         ReshapeMatrix reshapeMatrix = new ReshapeMatrix();
 
         assertAll(
-                () -> assertArrayEquals(new int[][]{{1, 2, 3, 4}}, reshapeMatrix.matrixReshape(nums1,1,4)),
-                () -> assertArrayEquals(new int[][]{{1, 2}, {3, 4}}, reshapeMatrix.matrixReshape(nums2,2,4))
+                () -> assertArrayEquals(new int[][]{{1, 2, 3, 4}}, reshapeMatrix.matrixReshape(nums1, 1, 4)),
+                () -> assertArrayEquals(new int[][]{{1, 2}, {3, 4}}, reshapeMatrix.matrixReshape(nums2, 2, 4))
+        );
+    }
+
+    @Test
+    void validSudokuTest() {
+        char[][] board1 = new char[][]{
+                {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
+
+        char[][] board2 = new char[][]{
+                {'8', '3', '.', '.', '7', '.', '.', '.', '.'}
+                , {'6', '.', '.', '1', '9', '5', '.', '.', '.'}
+                , {'.', '9', '8', '.', '.', '.', '.', '6', '.'}
+                , {'8', '.', '.', '.', '6', '.', '.', '.', '3'}
+                , {'4', '.', '.', '8', '.', '3', '.', '.', '1'}
+                , {'7', '.', '.', '.', '2', '.', '.', '.', '6'}
+                , {'.', '6', '.', '.', '.', '.', '2', '8', '.'}
+                , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
+                , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        char[][] board3 = new char[][]{
+                {'.', '.', '.', '.', '5', '.', '.', '1', '.'},
+                {'.', '4', '.', '3', '.', '.', '.', '.', '.'},
+                {'.', '.', '.', '.', '.', '3', '.', '.', '1'},
+                {'8', '.', '.', '.', '.', '.', '.', '2', '.'},
+                {'.', '.', '2', '.', '7', '.', '.', '.', '.'},
+                {'.', '1', '5', '.', '.', '.', '.', '.', '.'},
+                {'.', '.', '.', '.', '.', '2', '.', '.', '.'},
+                {'.', '2', '.', '9', '.', '.', '.', '.', '.'},
+                {'.', '.', '4', '.', '.', '.', '.', '.', '.'}
+        };
+
+
+        ValidSudoku validSudoku = new ValidSudoku();
+        assertAll(
+                () -> assertTrue(validSudoku.isValidSudoku(board1)),
+                () -> assertFalse(validSudoku.isValidSudoku(board2)),
+                () -> assertFalse(validSudoku.isValidSudoku(board3))
+        );
+    }
+
+    @Test
+    void search2DMatrixTest() {
+        int[][] nums1 = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+        int[][] nums2 = new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+
+
+        Search2DMatrix search2DMatrix = new Search2DMatrix();
+
+        assertAll(
+                () -> assertTrue(search2DMatrix.searchMatrix(nums1, 3)),
+                () -> assertFalse(search2DMatrix.searchMatrix(nums2, 13))
+        );
+    }
+
+    @Test
+    void firstUniqueCharacterStringTest() {
+        String str1 = "leetcode";
+        String str2 = "loveleetcode";
+        String str3 = "aabb";
+
+        FirstUniqueCharacter firstUniqueCharacter = new FirstUniqueCharacter();
+
+        assertAll(
+                () -> assertEquals(0,firstUniqueCharacter.firstUniqChar(str1)),
+                () -> assertEquals(2,firstUniqueCharacter.firstUniqChar(str2)),
+                () -> assertEquals(-1,firstUniqueCharacter.firstUniqChar(str3))
+        );
+    }
+
+    @Test
+    void ransomNoteTest() {
+        String str11 = "a";
+        String str12 = "b";
+        String str21 = "aa";
+        String str22 = "ab";
+        String str31 = "aa";
+        String str32 = "aab";
+
+        RansomNote ransomNote = new RansomNote();
+
+        assertAll(
+                () -> assertFalse(ransomNote.canConstruct(str11,str12)),
+                () -> assertFalse(ransomNote.canConstruct(str22,str21)),
+                () -> assertTrue(ransomNote.canConstruct(str31,str32))
+        );
+    }
+
+    @Test
+    void validAnagramTest() {
+        String str11 = "anagram";
+        String str12 = "nagaram";
+        String str21 = "rat";
+        String str22 = "car";
+
+        ValidAnagram validAnagram = new ValidAnagram();
+
+        assertAll(
+                () -> assertTrue(validAnagram.isAnagram(str11,str12)),
+                () -> assertFalse(validAnagram.isAnagram(str22,str21))
+        );
+    }
+
+    @Test
+    void validParenthesesTest() {
+        String str1 = "()";
+        String str2 = "()[]{}";
+        String str3 = "(]";
+
+
+        ValidParentheses validParentheses = new ValidParentheses();
+
+        assertAll(
+                () -> assertTrue(validParentheses.isValid(str1)),
+                () -> assertTrue(validParentheses.isValid(str2)),
+                () -> assertFalse(validParentheses.isValid(str3))
         );
     }
 }
