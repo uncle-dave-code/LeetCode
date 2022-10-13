@@ -1,7 +1,7 @@
 package com.dscfgos.leet_code_problems.daily_challenge;
 
-import com.dscfgos.leet_code_problems.daily_challenge.max_number_k_sum_pairs.MaxNumberKSumPairs;
-import com.dscfgos.leet_code_problems.daily_challenge.remove_adjacent_duplicates_string_II.RemoveAdjacentDuplicatesStringII;
+import com.dscfgos.leet_code_problems.data_structure.contains_duplicate.daily_challenge.max_number_k_sum_pairs.MaxNumberKSumPairs;
+import com.dscfgos.leet_code_problems.data_structure.contains_duplicate.daily_challenge.remove_adjacent_duplicates_string_II.RemoveAdjacentDuplicatesStringII;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertAll;

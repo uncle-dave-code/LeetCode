@@ -1,4 +1,4 @@
-package com.dscfgos.leet_code_problems.daily_challenge.remove_adjacent_duplicates_string_II;
+package com.dscfgos.leet_code_problems.data_structure.contains_duplicate.daily_challenge.remove_adjacent_duplicates_string_II;
 
 import java.util.LinkedList;
 import java.util.List;

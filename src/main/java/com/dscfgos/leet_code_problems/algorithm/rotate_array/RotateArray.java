@@ -1,7 +1,5 @@
 package com.dscfgos.leet_code_problems.algorithm.rotate_array;
 
-import java.util.Arrays;
-
 /**
  * (189) - Rotate Array
  * Given an array, rotate the array to the right by k steps, where k is non-negative.
@@ -21,5 +19,27 @@ public class RotateArray {
 
         return nums;
 
+    }
+
+    //      [-1,-100,3,99] Input
+    //      [-1,-100,-1,99] output
+    //      [3,99,-1,-100] expected
+
+    public int[] rotate2(int[] nums, int k) {
+        k = k % nums.length;
+        int count = 0;
+        for (int start = 0; count < nums.length; start++) {
+            int current = start;
+            int prev = nums[start];
+            do {
+                int next = (current + k) % nums.length;
+                int temp = nums[next];
+                nums[next] = prev;
+                prev = temp;
+                current = next;
+                count++;
+            } while (start != current);
+        }
+        return nums;
     }
 }

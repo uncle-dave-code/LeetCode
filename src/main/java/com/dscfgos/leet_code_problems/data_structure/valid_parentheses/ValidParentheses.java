@@ -21,6 +21,7 @@ public class ValidParentheses {
         Stack<Character> stack = new Stack<>();
 
         Set<Character> closeTags = Set.of(')', '}', ']');
+
         Map<Character, Character> openTags = Map.of('(', ')', '{', '}', '[', ']');
 
         for (int i = 0; i < s.length(); i++) {

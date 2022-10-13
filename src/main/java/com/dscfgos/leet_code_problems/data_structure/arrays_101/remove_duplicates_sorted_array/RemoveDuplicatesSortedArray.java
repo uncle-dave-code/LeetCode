@@ -29,4 +29,19 @@ public class RemoveDuplicatesSortedArray {
         }
         return position;
     }
+
+    public int removeDuplicatesElement2(int[] nums) {
+        if (nums == null && nums.length <= 1) {
+            return nums.length;
+        }
+        int position = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[position - 1]) {
+                nums[position] = nums[i];
+                position++;
+            }
+        }
+        return position;
+    }
 }

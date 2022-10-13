@@ -1,4 +1,4 @@
-package com.dscfgos.leet_code_problems.daily_challenge.stack_using_queues;
+package com.dscfgos.leet_code_problems.data_structure.contains_duplicate.daily_challenge.stack_using_queues;
 
 import java.util.*;
 

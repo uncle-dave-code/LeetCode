@@ -1,4 +1,4 @@
-package com.dscfgos.leet_code_problems.daily_challenge.max_number_k_sum_pairs;
+package com.dscfgos.leet_code_problems.data_structure.contains_duplicate.daily_challenge.max_number_k_sum_pairs;
 
 import java.util.HashMap;
 import java.util.Map;
