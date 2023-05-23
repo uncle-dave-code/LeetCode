@@ -25,7 +25,7 @@ public class ValidParentheses {
         Map<Character, Character> openTags = Map.of('(', ')', '{', '}', '[', ']');
 
         for (int i = 0; i < s.length(); i++) {
-            Character character = s.charAt(i);
+            char character = s.charAt(i);
             if (openTags.containsKey(character)) {
                 stack.push(s.charAt(i));
             } else if (closeTags.contains(character)) {
